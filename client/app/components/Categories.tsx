@@ -65,7 +65,7 @@ const Category = () => {
   };
   const selectedCategory = searchParams.get("category");
   return (
-    <div className="column columns-2 sm:columns-3 lg:columns-4 xl:columns-8 bg-gray-200 rounded-lg mb-8 overflow-hidden p-1">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 bg-gray-200 rounded-lg mb-8 overflow-hidden p-1">
       {categories.map((category, index) => (
         <div
           key={category.name}
