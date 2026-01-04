@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ProductsType } from "../types";
 import ProductCard from "./ProductCard";
+import Category from "./Categories";
+import Filter from "./Filter";
 
 const products: ProductsType = [
   {
@@ -113,9 +115,17 @@ const products: ProductsType = [
   },
 ];
 
-const ProductList = async ({ category }: { category: string }) => {
+const ProductList = async ({
+  category,
+  params,
+}: {
+  category: string;
+  params: "homePage" | "productsPage";
+}) => {
   return (
     <div>
+      <Category />
+      {params === "productsPage" && <Filter />}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-12 mb-8">
         {products.map((product, index) => (
           <ProductCard key={product.id} product={product} />

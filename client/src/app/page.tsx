@@ -1,7 +1,8 @@
 import Image from "next/image";
-import Category from "./components/Categories";
-import ProductList from "./components/ProductList";
+import Category from "../components/Categories";
+import ProductList from "../components/ProductList";
 import Link from "next/link";
+import Filter from "../components/Filter";
 
 const HomePage = async ({
   searchParams,
@@ -19,8 +20,7 @@ const HomePage = async ({
           className="object-cover"
         />
       </div>
-      <Category />
-      <ProductList category={category} />
+      <ProductList category={category} params="homePage" />
       <Link
         className="underline flex justify-end mb-8 text-sm"
         href={category ? `/products?category=${category}` : `/products`}

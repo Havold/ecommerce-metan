@@ -1,4 +1,4 @@
-import ProductList from "../components/ProductList";
+import ProductList from "../../components/ProductList";
 
 const ProductsPage = async ({
   searchParams,
@@ -8,7 +8,7 @@ const ProductsPage = async ({
   const category = (await searchParams).category;
   return (
     <div>
-      <ProductList category={category} />
+      <ProductList category={category} params="productsPage" />
     </div>
   );
 };
