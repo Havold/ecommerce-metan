@@ -1,8 +1,6 @@
 import Image from "next/image";
-import Category from "../components/Categories";
 import ProductList from "../components/ProductList";
 import Link from "next/link";
-import Filter from "../components/Filter";
 
 const HomePage = async ({
   searchParams,
