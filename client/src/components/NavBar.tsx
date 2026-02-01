@@ -1,7 +1,8 @@
 import Link from "next/link";
 
 import Input from "./Input";
-import { Bell, House, ShoppingCart } from "lucide-react";
+import { Bell, House } from "lucide-react";
+import ShoppingCartIcon from "./ShoppingCartIcon";
 
 const NavBar = () => {
   return (
@@ -15,9 +16,10 @@ const NavBar = () => {
       {/* RIGHT */}
       <div className="flex items-center gap-4">
         <Input />
-        <House className="w-4 h-4 text-gray-500" />
-        <Bell className="w-4 h-4 text-gray-500" />
-        <ShoppingCart className="w-4 h-4 text-gray-500" />
+        <House className="w-4 h-4 text-gray-600" />
+        <Bell className="w-4 h-4 text-gray-600" />
+        {/* <ShoppingCart className="w-4 h-4 text-gray-500" /> */}
+        <ShoppingCartIcon />
         <Link className="text-sm" href="/login">
           Login
         </Link>
