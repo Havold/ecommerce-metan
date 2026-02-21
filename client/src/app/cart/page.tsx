@@ -89,12 +89,6 @@ const CartPage = async ({
     (total, item) => total + item.price * item.quantity,
     0,
   );
-  const continueBtnElm = (
-    <>
-      Continue
-      <ArrowRight size={12} />
-    </>
-  );
   return (
     <div className="flex flex-col items-center gap-8 my-12">
       <h1 className="text-2xl font-semibold">Your Shopping Cart</h1>
@@ -162,11 +156,11 @@ const CartPage = async ({
             <ArrowRight size={12} />
           </button> */}
           {activeStep === "1" ? (
-            <Button
-              content={continueBtnElm}
-              typeOfClickEvent="navigate"
-              href="/cart?step=2"
-            />
+            <Button typeOfClickEvent="navigate" href="/cart?step=2">
+              {" "}
+              Continue
+              <ArrowRight size={12} />
+            </Button>
           ) : (
             <></>
           )}
