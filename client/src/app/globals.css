@@ -30,5 +30,6 @@ input {
 
 @theme {
   --color-secondary-bg: #1F2938;
-  --color-primary: #FAC23C
+  --color-primary: #FAC23C;
+  --color-error: #ef4444;
 }

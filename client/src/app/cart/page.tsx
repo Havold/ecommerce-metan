@@ -1,10 +1,13 @@
+"use client";
 import Button from "@/src/components/Button";
 import CartItem from "@/src/components/CartItem";
 import PaymentForm from "@/src/components/PaymentForm";
 import ShippingForm from "@/src/components/ShippingForm";
 import Step from "@/src/components/Step";
-import { CartItems } from "@/src/types";
+import { CartItems, ShippingFormInputs } from "@/src/types";
 import { ArrowRight } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 const listSteps = [
   {
@@ -77,12 +80,12 @@ const cartItems: CartItems = [
   },
 ];
 
-const CartPage = async ({
-  searchParams,
-}: {
-  searchParams: Promise<{ step: string }>;
-}) => {
-  const activeStep = (await searchParams).step ?? "1";
+const CartPage = () => {
+  const searchParams = useSearchParams();
+  const activeStep = searchParams.get("step");
+  const [shippingForm, setShippingForm] = useState<ShippingFormInputs | null>(
+    null,
+  );
   const discountValue = 10;
   const shippingFee = 10;
   const subTotal = cartItems.reduce(
@@ -114,9 +117,11 @@ const CartPage = async ({
               </div>
             </>
           ) : activeStep === "2" ? (
-            <ShippingForm />
-          ) : (
+            <ShippingForm setShippingForm={setShippingForm} />
+          ) : shippingForm ? (
             <PaymentForm />
+          ) : (
+            <>Please fill in Shipping Form</>
           )}
         </div>
         {/* RIGHT */}
@@ -148,15 +153,8 @@ const CartPage = async ({
             </span>
           </div>
           {/* BUTTON */}
-          {/* <button
-            onClick={handleClick}
-            className="text-sm flex gap-2 justify-center items-center w-full bg-secondary-bg text-white p-3 rounded-md cursor-pointer hover:opacity-95 hover:scale-98 transition-all ease-in"
-          >
-            Continue
-            <ArrowRight size={12} />
-          </button> */}
           {activeStep === "1" ? (
-            <Button typeOfClickEvent="navigate" href="/cart?step=2">
+            <Button href="/cart?step=2">
               {" "}
               Continue
               <ArrowRight size={12} />
