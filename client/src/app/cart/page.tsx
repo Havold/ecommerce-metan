@@ -82,10 +82,11 @@ const cartItems: CartItems = [
 
 const CartPage = () => {
   const searchParams = useSearchParams();
-  const activeStep = searchParams.get("step");
+  const activeStep = searchParams.get("step") || "1";
   const [shippingForm, setShippingForm] = useState<ShippingFormInputs | null>(
     null,
   );
+  const [paymentForm, setPaymentForm] = useState(null);
   const discountValue = 10;
   const shippingFee = 10;
   const subTotal = cartItems.reduce(
@@ -119,7 +120,7 @@ const CartPage = () => {
           ) : activeStep === "2" ? (
             <ShippingForm setShippingForm={setShippingForm} />
           ) : shippingForm ? (
-            <PaymentForm />
+            <PaymentForm setPaymentForm={setPaymentForm} />
           ) : (
             <>Please fill in Shipping Form</>
           )}
