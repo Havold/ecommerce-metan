@@ -11,7 +11,7 @@ const useCartStore = create<CartStoreStateType & CartStoreActionsType>()(
   persist(
     (set) => ({
       cart: [],
-      addToCart: (product: CartItem) =>
+      addToCart: (product) =>
         set((state: { cart: CartItems }) => {
           const productIndex = state.cart.findIndex(
             (item) =>
@@ -27,7 +27,7 @@ const useCartStore = create<CartStoreStateType & CartStoreActionsType>()(
             return { cart: [...state.cart, product] };
           }
         }),
-      removeFromCart: (product: CartItem) =>
+      removeFromCart: (product) =>
         set((state: { cart: CartItems }) => ({
           cart: state.cart.filter(
             (currItem) =>
@@ -39,8 +39,17 @@ const useCartStore = create<CartStoreStateType & CartStoreActionsType>()(
           ),
         })),
       clearCart: () => set({ cart: [] }),
+      hasHydrated: false,
     }),
-    { name: "cart-storage", storage: createJSONStorage(() => localStorage) },
+    {
+      name: "cart-storage",
+      storage: createJSONStorage(() => localStorage),
+      onRehydrateStorage: () => (state) => {
+        if (state) {
+          state.hasHydrated = true;
+        }
+      },
+    },
   ),
 );
 
