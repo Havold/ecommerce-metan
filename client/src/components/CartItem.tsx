@@ -1,8 +1,14 @@
+"use client";
 import { Trash2 } from "lucide-react";
 import Image from "next/image";
 import { CartItem as CartItemProps } from "../types";
+import useCartStore from "../store/cartStore";
 
 const CartItem: React.FC<CartItemProps> = (cartItem) => {
+  const { removeFromCart } = useCartStore();
+  const handleRemoveItem = (item: CartItemProps) => {
+    removeFromCart(item);
+  };
   return (
     <div className="w-full h-max flex items-center gap-8 p-4 border border-gray-100 rounded-sm justify-between">
       {/* IMAGE AND DETAILS */}
@@ -39,7 +45,10 @@ const CartItem: React.FC<CartItemProps> = (cartItem) => {
       {/* CONTENT */}
 
       {/* BUTTON */}
-      <div className="p-3 bg-red-200 flex items-center justify-center w-fit h-fit rounded-full transition-all ease-in hover:scale-90 hover:cursor-pointer hover:bg-red-300">
+      <div
+        onClick={() => handleRemoveItem(cartItem)}
+        className="p-3 bg-red-200 flex items-center justify-center w-fit h-fit rounded-full transition-all ease-in hover:scale-90 hover:cursor-pointer hover:bg-red-300"
+      >
         <Trash2 size={18} className="text-red-400" />
       </div>
     </div>

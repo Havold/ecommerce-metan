@@ -19,7 +19,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
     addToCart({
       ...product,
       selectedColor: productType.color,
-      selectedSize: productType.color,
+      selectedSize: productType.size,
       quantity: 1,
     });
     toast.success("Add product successfully!");
