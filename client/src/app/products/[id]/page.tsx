@@ -30,7 +30,7 @@ const ProductPage = async ({
   const selectedSize = size || (product.sizes[0] as string);
   const selectedColor = (color as Color) || product.colors[0];
   return (
-    <div className="flex gap-5 my-10">
+    <div className="flex flex-col md:flex-row gap-5 my-10">
       {/* LEFT */}
       <div className="relative flex-5/12 aspect-2/3">
         <Image
