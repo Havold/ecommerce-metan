@@ -4,6 +4,8 @@ import { ProductType } from "../types";
 import Button from "./Button";
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import useCartStore from "../store/cartStore";
+import { toast } from "react-toastify";
 
 const ProductInteraction = ({
   product,
@@ -16,6 +18,7 @@ const ProductInteraction = ({
 }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { addToCart } = useCartStore();
   const [productType, setProductType] = useState({
     size: selectedSize,
     color: selectedColor,
@@ -35,6 +38,16 @@ const ProductInteraction = ({
     const params = new URLSearchParams(searchParams);
     params.set(type, value);
     router.push(`/products/${product.id}?${params}`, { scroll: false });
+  };
+
+  const handleAddToCart = () => {
+    addToCart({
+      ...product,
+      selectedColor: productType.color,
+      selectedSize: productType.size,
+      quantity: quantity,
+    });
+    toast.success("Add product successfully!");
   };
   return (
     <>
@@ -116,7 +129,7 @@ const ProductInteraction = ({
       </div>
       {/* BUTTONS */}
       <div className="flex flex-col gap-4">
-        <Button>
+        <Button onClick={handleAddToCart}>
           <Plus size={14} />
           Add to Cart
         </Button>

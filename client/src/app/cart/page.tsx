@@ -114,13 +114,19 @@ const CartPage = () => {
             <>
               {" "}
               <h1 className="text-md font-semibold">Cart Items</h1>
-              <div className="flex flex-col gap-4 mt-4">
-                {cart.map((item) => (
-                  <CartItem
-                    key={`${item.id}_${item.selectedColor}_${item.selectedSize}`}
-                    {...item}
-                  />
-                ))}
+              <div className="h-full flex flex-col gap-4 mt-4 items-center justify-center">
+                {cart.length === 0 ? (
+                  <span className="text-center">
+                    There are no products in your shopping cart.
+                  </span>
+                ) : (
+                  cart.map((item) => (
+                    <CartItem
+                      key={`${item.id}_${item.selectedColor}_${item.selectedSize}`}
+                      {...item}
+                    />
+                  ))
+                )}
               </div>
             </>
           ) : activeStep === "2" ? (
