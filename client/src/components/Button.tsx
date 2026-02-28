@@ -9,12 +9,14 @@ interface ButtonProps {
   onClick?: () => void;
   href?: string;
   children: React.ReactNode;
+  className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
   backgroundColor = "secondary-bg",
   textColor = "white",
+  className,
   onClick,
   href,
   type = "button",
@@ -33,7 +35,10 @@ const Button: React.FC<ButtonProps> = ({
     <button
       type={type}
       onClick={handleClick}
-      className={`text-sm flex gap-2 justify-center items-center w-full bg-${backgroundColor} text-${textColor} p-3 rounded-md cursor-pointer hover:opacity-95 hover:scale-98 transition-all ease-in`}
+      className={
+        className +
+        `text-sm flex gap-2 justify-center items-center w-full bg-${backgroundColor} text-${textColor} p-3 rounded-md cursor-pointer hover:opacity-95 hover:scale-98 transition-all ease-in`
+      }
     >
       {children}
     </button>

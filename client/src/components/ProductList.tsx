@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ProductsType } from "../types";
 import ProductCard from "./ProductCard";
 import Category from "./Categories";

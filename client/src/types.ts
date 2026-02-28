@@ -61,3 +61,5 @@ export type CartStoreActionsType = {
   removeFromCart: (product: CartItem) => void;
   clearCart: () => void;
 };
+
+export type Color = "gray" | "purple" | "green";

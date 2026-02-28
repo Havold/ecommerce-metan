@@ -37,7 +37,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
   return (
     <div className="shadow-md p-4 rounded-lg">
       {/* IMAGE */}
-      <Link href={`/product/${product.id}`}>
+      <Link href={`/products/${product.id}`}>
         <div className="relative aspect-2/3 overflow-hidden rounded-md">
           <Image
             className="hover:scale-105 transition-transform ease-in duration-300"
@@ -55,9 +55,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
         <div className="flex gap-6 text-xs">
           {/* SIZES */}
           <div className="flex flex-col gap-1">
-            <label className="text-gray-500" htmlFor="">
-              Size
-            </label>
+            <label className="text-gray-500">Size</label>
             <select
               className="ring-1 rounded-md ring-gray-300 hover:ring-primary"
               name="size"
@@ -75,9 +73,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
           </div>
           {/* COLORS */}
           <div className="flex flex-col gap-1">
-            <label className="text-gray-500" htmlFor="">
-              Color
-            </label>
+            <label className="text-gray-500">Color</label>
             <div className="flex gap-2">
               {product.colors.map((color) => (
                 <div
