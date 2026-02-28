@@ -1,5 +1,6 @@
 import ProductInteraction from "@/src/components/ProductInteraction";
 import { Color } from "@/src/types";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,6 +20,11 @@ const product = {
     purple: "/products/1p.png",
     green: "/products/1gr.png",
   },
+};
+
+export const metadata: Metadata = {
+  title: product.name,
+  description: product.description,
 };
 
 const ProductPage = async ({
