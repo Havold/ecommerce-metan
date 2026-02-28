@@ -37,7 +37,7 @@ const Button: React.FC<ButtonProps> = ({
       onClick={handleClick}
       className={
         className +
-        `text-sm flex gap-2 justify-center items-center w-full bg-${backgroundColor} text-${textColor} p-3 rounded-md cursor-pointer hover:opacity-95 hover:scale-98 transition-all ease-in`
+        ` text-sm flex gap-2 justify-center items-center w-full bg-${backgroundColor} text-${textColor} p-3 rounded-md cursor-pointer hover:opacity-95 hover:scale-98 transition-all ease-in`
       }
     >
       {children}

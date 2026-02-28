@@ -134,7 +134,7 @@ const ProductInteraction = ({
           Add to Cart
         </Button>
         <Button
-          className="ring-1 ring-secondary-bg"
+          className="ring-1 ring-gray-200 shadow-md"
           backgroundColor="white"
           textColor="secondary-bg"
         >
