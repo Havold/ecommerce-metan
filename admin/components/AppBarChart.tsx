@@ -29,7 +29,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-const AppBarChar = () => {
+const AppBarChart = () => {
   return (
     <div>
       <ChartContainer config={chartConfig} className="min-h-50 w-full">
@@ -53,4 +53,4 @@ const AppBarChar = () => {
   );
 };
 
-export default AppBarChar;
+export default AppBarChart;

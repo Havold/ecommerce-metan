@@ -7,15 +7,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart";
-import {
-  Area,
-  AreaChart,
-  Bar,
-  BarChart,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -37,7 +29,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-const AppAreaChar = () => {
+const AppAreaChart = () => {
   return (
     <ChartContainer config={chartConfig} className="min-h-50 w-full">
       <AreaChart accessibilityLayer data={chartData}>
@@ -73,4 +65,4 @@ const AppAreaChar = () => {
   );
 };
 
-export default AppAreaChar;
+export default AppAreaChart;
