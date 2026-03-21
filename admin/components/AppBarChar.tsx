@@ -42,7 +42,7 @@ const AppBarChar = () => {
             axisLine={false}
             tickFormatter={(value) => value.slice(0, 3)}
           />
-          <YAxis axisLine={false} tickLine={false} />
+          <YAxis axisLine={false} tickLine={false} tickMargin={10} />
           <ChartTooltip content={<ChartTooltipContent />} />
           <ChartLegend content={<ChartLegendContent />} />
           <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
