@@ -1,5 +1,6 @@
 import AppLineChart from "@/components/AppLineChart";
 import CardList from "@/components/CardList";
+import EditUser from "@/components/EditUser";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -16,6 +17,7 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { Progress } from "@/components/ui/progress";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { Candy, CircleCheck, Citrus, Shield } from "lucide-react";
 
 const SingleUserPage = () => {
@@ -105,7 +107,12 @@ const SingleUserPage = () => {
           <div className="p-4 bg-primary-foreground rounded-lg">
             <div className="flex justify-between">
               <h1 className="text-md font-medium">User Information</h1>
-              <Button className="p-4 cursor-pointer">Edit User</Button>
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button className="p-4 cursor-pointer">Edit User</Button>
+                </SheetTrigger>
+                <EditUser />
+              </Sheet>
             </div>
             <div className="flex flex-col gap-2 my-4">
               <span className="text-xs text-muted-foreground">
