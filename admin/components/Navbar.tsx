@@ -19,7 +19,7 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <nav className="text-xs p-4 flex items-center justify-between">
+    <nav className="text-xs p-4 flex items-center justify-between sticky top-0 bg-background z-4">
       <SidebarTrigger />
       <div className="flex gap-3 items-center">
         <Link href="/dashboard">Dashboard</Link>
