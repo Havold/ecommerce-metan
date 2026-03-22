@@ -99,10 +99,7 @@ const CardList = ({
   return (
     <div className="flex flex-col gap-4">
       {content.map((item) => (
-        <Card
-          className="flex flex-row justify-between items-center px-4"
-          key={item.id}
-        >
+        <Card className="flex justify-between items-center px-4" key={item.id}>
           <div className="relative w-12 h-12 rounded-sm overflow-hidden">
             <Image
               src={item.image}
