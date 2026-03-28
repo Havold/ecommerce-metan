@@ -25,14 +25,14 @@ export default function TablePagination<TData>({
   return (
     <div className="text-xs flex items-center justify-between p-4">
       {/* LEFT - TOTAL SELECTED ROWS SECTION */}
-      <div className="text-muted-foreground">
+      <div className="hidden lg:block text-muted-foreground">
         <span>{`${table.getSelectedRowModel().rows.length} of ${table.getRowCount()} rows(s) selected.`}</span>
       </div>
       {/* RIGHT */}
       <div className="flex gap-8">
         {/* ROW PER PAGE SECTION */}
         <div className="flex gap-2 items-center">
-          <span>Rows per page</span>
+          <span className="text-center">Rows per page</span>
           <Select
             onValueChange={(value) => {
               table.setPageSize(Number(value));
@@ -54,7 +54,7 @@ export default function TablePagination<TData>({
         </div>
         {/* PAGE NUMBER SECTION */}
         <div className="flex items-center">
-          <span>{`Page ${table.getState().pagination.pageIndex + 1} of ${table.getPageCount()}`}</span>
+          <span className="text-center">{`Page ${table.getState().pagination.pageIndex + 1} of ${table.getPageCount()}`}</span>
         </div>
         {/* CONTROLs */}
         <div className="flex gap-2 items-center">

@@ -178,6 +178,7 @@ export default async function PaymentTable() {
   const data = await getData();
   return (
     <div className="p-4">
+      <h1 className="mb-4 text-sm font-semibold">All Payments</h1>
       <DataTable columns={columns} data={data} />
     </div>
   );

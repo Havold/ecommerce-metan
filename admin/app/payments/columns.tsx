@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, Ellipsis, Pencil, Trash2 } from "lucide-react";
+import { ArrowUpDown, Ellipsis, Pencil, Trash2, User } from "lucide-react";
+import Link from "next/link";
 
 export type Payment = {
   id: string;
@@ -26,6 +27,7 @@ export const columns: ColumnDef<Payment>[] = [
     header: ({ table }) => {
       return (
         <Checkbox
+          className="hidden lg:block"
           checked={
             table.getIsAllPageRowsSelected() ||
             (table.getIsSomePageRowsSelected() && "indeterminate")
@@ -39,6 +41,7 @@ export const columns: ColumnDef<Payment>[] = [
     cell: ({ row }) => {
       return (
         <Checkbox
+          className="hidden lg:block"
           checked={row.getIsSelected()}
           onCheckedChange={(value) => {
             row.toggleSelected(!!value);
@@ -54,7 +57,7 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "email",
     header: ({ column }) => (
-      <div className="flex items-center">
+      <div className="hidden lg:flex items-center">
         Email{" "}
         <Button
           onClick={() => column.toggleSorting()}
@@ -63,6 +66,9 @@ export const columns: ColumnDef<Payment>[] = [
           <ArrowUpDown className="w-4 h-4" />
         </Button>
       </div>
+    ),
+    cell: ({ row }) => (
+      <span className="hidden lg:block">{row.getValue("email")}</span>
     ),
   },
   {
@@ -112,6 +118,12 @@ export const columns: ColumnDef<Payment>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuGroup>
+              <DropdownMenuItem asChild className="text-xs p-2">
+                <Link href={`/users/${row.original.id}`}>
+                  <User className="w-2 h-2" />
+                  View Profile
+                </Link>
+              </DropdownMenuItem>
               <DropdownMenuItem className="text-xs p-2">
                 <Pencil className="w-2 h-2" />
                 Edit
