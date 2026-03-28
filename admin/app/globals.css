@@ -16,7 +16,7 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
-  --color-chart-6: var(--chart-6)
+  --color-chart-6: var(--chart-6);
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
@@ -46,6 +46,10 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
   --color-custom-color: var(--custom-color);
+  --color-success: var(--success);
+  --color-failed: var(--failed);
+  --color-pending: var(--pending);
+  --color-process: var(--process);
 }
 
 :root {
@@ -89,6 +93,10 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --custom-color: oklch(0.6 0 0);
+  --success: #08a96e;
+  --failed: #FA2256;
+  --pending: #FE9A02;
+  --process: #1548E5;
 }
 
 .dark {
@@ -131,6 +139,10 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
   --custom-color: oklch(0.6 0 0);
+  --success: #08a96e;
+  --failed: #FA2256;
+  --pending: #FE9A02;
+  --process: #1548E5;
 }
 
 @layer base {
