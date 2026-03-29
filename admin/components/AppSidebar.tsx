@@ -44,6 +44,7 @@ import {
 import { Sheet, SheetTrigger } from "./ui/sheet";
 import AddOrder from "./AddOrder";
 import { Button } from "./ui/button";
+import AddUser from "./AddUser";
 
 const items = [
   {
@@ -162,9 +163,16 @@ const AppSidebar = () => {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton size="sm">
-                  <Plus />
-                  <span>Add User</span>
+                <SidebarMenuButton asChild size="sm">
+                  <Sheet>
+                    <SheetTrigger asChild>
+                      <SidebarMenuButton size="sm">
+                        <Plus />
+                        <span>Add User</span>
+                      </SidebarMenuButton>
+                    </SheetTrigger>
+                    <AddUser />
+                  </Sheet>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -179,20 +187,20 @@ const AppSidebar = () => {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton size="sm" asChild>
-                  <Link href="/users">
+                  <Link href="/payments">
                     <ShoppingBasket />
                     <span>See All Transactions</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton size="sm">
+                <SidebarMenuButton asChild size="sm">
                   <Sheet>
                     <SheetTrigger asChild>
-                      <div className="flex gap-2 cursor-pointer">
+                      <SidebarMenuButton size="sm">
                         <Plus />
                         <span>Add Order</span>
-                      </div>
+                      </SidebarMenuButton>
                     </SheetTrigger>
                     <AddOrder />
                   </Sheet>
