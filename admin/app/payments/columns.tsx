@@ -6,16 +6,26 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, Ellipsis, Pencil, Trash2, User } from "lucide-react";
+import {
+  ArrowUpDown,
+  Copy,
+  Ellipsis,
+  Trash2,
+  User,
+  WalletCards,
+} from "lucide-react";
 import Link from "next/link";
 
 export type Payment = {
   id: string;
   user: string;
+  userId: string;
   amount: number;
   status: "pending" | "processing" | "success" | "failed";
   email: string;
@@ -116,17 +126,30 @@ export const columns: ColumnDef<Payment>[] = [
               <Ellipsis className="w-4 h-4" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent>
+          <DropdownMenuContent className="w-fit">
             <DropdownMenuGroup>
+              <DropdownMenuLabel>Actions</DropdownMenuLabel>
               <DropdownMenuItem asChild className="text-xs p-2">
-                <Link href={`/users/${row.original.id}`}>
-                  <User className="w-2 h-2" />
-                  View Profile
+                <button
+                  onClick={() => navigator.clipboard.writeText(row.original.id)}
+                  className="w-full"
+                >
+                  <Copy className="w-2 h-2" />
+                  Copy Payment Id
+                </button>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem asChild className="text-xs p-2">
+                <Link href={`/payments/${row.original.id}`}>
+                  <WalletCards className="w-2 h-2" />
+                  View Detail Payment
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem className="text-xs p-2">
-                <Pencil className="w-2 h-2" />
-                Edit
+              <DropdownMenuItem asChild className="text-xs p-2">
+                <Link href={`/users/${row.original.userId}`}>
+                  <User className="w-2 h-2" />
+                  View User Profile
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="text-xs p-2" variant="destructive">
                 <Trash2 className="w-2 h-2" /> Delete
