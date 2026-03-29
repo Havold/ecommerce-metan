@@ -1,8 +1,6 @@
 import AppLineChart from "@/components/AppLineChart";
-import CardList from "@/components/CardList";
 import EditUser from "@/components/EditUser";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -33,7 +31,6 @@ const SingleUserPage = () => {
             <BreadcrumbLink href="/users">Users</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
-
           <BreadcrumbItem>
             <BreadcrumbLink href="/john-doe">John Doe</BreadcrumbLink>
           </BreadcrumbItem>
@@ -104,6 +101,21 @@ const SingleUserPage = () => {
               </HoverCard>
             </div>
           </div>
+          <div className="p-4 bg-primary-foreground rounded-lg space-y-4">
+            <div className="flex items-center gap-2">
+              <Avatar size="lg">
+                <AvatarImage src="https://github.com/shadcn.png" alt="JD" />
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+              <span className="text-lg font-medium">John Doe</span>
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Adipisci, maiores mollitia aliquam voluptas fuga officia, tempora
+              dignissimos dolorum molestiae, expedita cum laudantium eum
+              assumenda repellendus! Commodi esse asperiores sequi earum?
+            </p>
+          </div>
           <div className="p-4 bg-primary-foreground rounded-lg">
             <div className="flex justify-between">
               <h1 className="text-md font-medium">User Information</h1>
@@ -122,54 +134,34 @@ const SingleUserPage = () => {
             </div>
             <div className="flex flex-col gap-4 mb-4 mt-5">
               <div className="flex gap-2 items-center">
-                <span className="font-medium">Username:</span>
-                <span className="text-sm">john.doe</span>
+                <span className="font-medium">Full Name:</span>
+                <span className="text-sm">John Doe</span>
               </div>
               <div className="flex gap-2 items-center">
                 <span className="font-medium">Email:</span>
-                <span className="text-sm">john.doe</span>
-              </div>
-              <div className="flex gap-2 items-center">
-                <span className="font-medium">Location:</span>
-                <span className="text-sm">john.doe</span>
+                <span className="text-sm">john.doe@gmail.com</span>
               </div>
               <div className="flex gap-2 items-center">
                 <span className="font-medium">Phone:</span>
-                <span className="text-sm">john.doe</span>
+                <span className="text-sm">+1 234 5678</span>
               </div>
               <div className="flex gap-2 items-center">
-                <span className="font-medium">Role:</span>
-                <span className="text-sm">
-                  <Badge variant="default">Admin</Badge>
-                </span>
+                <span className="font-medium">Address:</span>
+                <span className="text-sm">123 Main St</span>
+              </div>
+
+              <div className="flex gap-2 items-center">
+                <span className="font-medium">City:</span>
+                <span className="text-sm">New York</span>
               </div>
             </div>
             <span className="text-xs text-muted-foreground">
               Joined on 2025.01.01
             </span>
           </div>
-          <div className="p-4 bg-primary-foreground rounded-lg">
-            <h1 className="text-md font-medium mb-4">Recent Transactions</h1>
-            <CardList type="Latest Transactions" />
-          </div>
         </div>
         {/* RIGHT */}
         <div className="w-full lg:w-2/3 space-y-8">
-          <div className="p-4 bg-primary-foreground rounded-lg space-y-4">
-            <div className="flex items-center gap-2">
-              <Avatar size="lg">
-                <AvatarImage src="https://github.com/shadcn.png" alt="JD" />
-                <AvatarFallback>JD</AvatarFallback>
-              </Avatar>
-              <span className="text-lg font-medium">John Doe</span>
-            </div>
-            <p className="text-xs text-muted-foreground">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Adipisci, maiores mollitia aliquam voluptas fuga officia, tempora
-              dignissimos dolorum molestiae, expedita cum laudantium eum
-              assumenda repellendus! Commodi esse asperiores sequi earum?
-            </p>
-          </div>
           <div className="p-4 bg-primary-foreground rounded-lg">
             <h1 className="text-md font-medium mb-8">User Activity</h1>
             <AppLineChart />

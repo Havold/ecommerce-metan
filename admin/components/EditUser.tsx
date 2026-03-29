@@ -18,7 +18,6 @@ import {
   InputUserContentItem,
   UserFormInputs,
   UserFormSchema,
-  UserLabelEnum,
 } from "@/app/types";
 import { Input } from "./ui/input";
 import {
@@ -31,28 +30,29 @@ import {
 } from "./ui/select";
 import { Button } from "./ui/button";
 
-const inputUserContent = [
-  { name: "username", description: "This is your public username." },
+const inputUserContent: InputUserContentItem[] = [
+  { name: "fullName", description: "Enter user full name." },
   { name: "email", description: "Only admin can see your email." },
-  { name: "phone", description: "Only admin can see your phone number." },
-  { name: "location", description: "This is the public location." },
   {
-    name: "role",
-    description: "Only user verified can be admin.",
-    type: "select",
-    options: ["admin", "user"],
+    name: "phone",
+    description: "Only admin can see your phone number. (optional)",
   },
-] satisfies InputUserContentItem[];
+  { name: "address", description: "Enter user address. (optional)" },
+  {
+    name: "city",
+    description: "Enter user city. (optional)",
+  },
+];
 
 const EditUser = () => {
   const form = useForm<UserFormInputs>({
     resolver: zodResolver(UserFormSchema),
     defaultValues: {
-      username: "john.doe",
+      fullName: "john.doe",
       email: "john.doe@gmail.com",
       phone: "+1 234 678",
-      location: "New York, NY",
-      role: "admin",
+      address: "123 Main St",
+      city: "New York",
     },
   });
 
@@ -94,11 +94,12 @@ const EditUser = () => {
                         </SelectTrigger>
                         <SelectContent position="popper">
                           <SelectGroup>
-                            {item.options.map((option, index) => (
-                              <SelectItem value={option} key={index}>
-                                {toCapitalize(option)}
-                              </SelectItem>
-                            ))}
+                            {item.options &&
+                              item.options.map((option, index) => (
+                                <SelectItem value={option} key={index}>
+                                  {toCapitalize(option)}
+                                </SelectItem>
+                              ))}
                           </SelectGroup>
                         </SelectContent>
                       </Select>

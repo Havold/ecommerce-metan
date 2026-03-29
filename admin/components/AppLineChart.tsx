@@ -25,7 +25,10 @@ const chartConfig = {
 const AppLineChart = () => {
   return (
     <>
-      <ChartContainer config={chartConfig} className="min-h-40 w-full">
+      <ChartContainer
+        config={chartConfig}
+        className="min-h-40 w-full lg:max-h-144"
+      >
         <LineChart accessibilityLayer data={chartData}>
           <CartesianGrid vertical={false} />
           <XAxis

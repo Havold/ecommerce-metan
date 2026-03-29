@@ -1,11 +1,6 @@
 import { z } from "zod";
 
-export type UserLabelEnum =
-  | "username"
-  | "email"
-  | "phone"
-  | "location"
-  | "role";
+export type UserLabelEnum = "fullName" | "email" | "phone" | "address" | "city";
 
 export type InputUserContentItem = {
   name: UserLabelEnum;
@@ -15,7 +10,7 @@ export type InputUserContentItem = {
 };
 
 export const UserFormSchema = z.object({
-  username: z
+  fullName: z
     .string()
     .min(2, "Username requires at least 2 characters")
     .max(10, "Maximum length of username is 10 characters"),
@@ -24,7 +19,8 @@ export const UserFormSchema = z.object({
     .string()
     .min(7, "Phone number must be between 7 and 10 digits.")
     .max(10, "Phone number must be between 7 and 10 digits."),
-  location: z.string(),
+  address: z.string(),
+  city: z.string(),
   role: z.enum(["admin", "user"]),
 });
 
