@@ -16,9 +16,9 @@ import {
   ArrowUpDown,
   Copy,
   Ellipsis,
+  ShoppingBasket,
   Trash2,
   User,
-  WalletCards,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -141,7 +141,7 @@ export const columns: ColumnDef<Payment>[] = [
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild className="text-xs p-2">
                 <Link href={`/payments/${row.original.id}`}>
-                  <WalletCards className="w-2 h-2" />
+                  <ShoppingBasket className="w-2 h-2" />
                   View Detail Payment
                 </Link>
               </DropdownMenuItem>

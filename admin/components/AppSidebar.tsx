@@ -1,14 +1,13 @@
 import {
-  ArrowUp,
   Calendar,
-  ChevronDown,
   ChevronUp,
   Home,
   Inbox,
   Plus,
-  Projector,
   Search,
   Settings,
+  Shirt,
+  ShoppingBasket,
   User,
 } from "lucide-react";
 import {
@@ -115,7 +114,7 @@ const AppSidebar = () => {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel>Projects</SidebarGroupLabel>
+          <SidebarGroupLabel>Products</SidebarGroupLabel>
           <SidebarGroupAction>
             <Plus />
           </SidebarGroupAction>
@@ -123,72 +122,81 @@ const AppSidebar = () => {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton size="sm" asChild>
-                  <Link href="/projects">
-                    <Projector />
-                    <span>See All Projects</span>
+                  <Link href="/products">
+                    <Shirt />
+                    <span>See All Products</span>
                   </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton size="sm" asChild>
+                  <button>
+                    <Plus />
+                    <span>Add Product</span>
+                  </button>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton size="sm" asChild>
+                  <button>
+                    <Plus />
+                    <span>Add Category</span>
+                  </button>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-        <Collapsible className="group/collapsible" defaultOpen>
-          <SidebarGroup>
-            <SidebarGroupLabel asChild>
-              <CollapsibleTrigger>
-                Collapsable Group{" "}
-                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
-              </CollapsibleTrigger>
-            </SidebarGroupLabel>
-            <CollapsibleContent>
-              <SidebarMenuItem>
-                <SidebarMenuButton size="sm" asChild>
-                  <Link href="/projects">
-                    <Projector />
-                    See All Project
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton size="sm" asChild>
-                  <Link href="/add-project">
-                    <Plus />
-                    Add Project
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </CollapsibleContent>
-          </SidebarGroup>
-        </Collapsible>
         <SidebarGroup>
-          <SidebarGroupLabel>Nested Items</SidebarGroupLabel>
+          <SidebarGroupLabel>Users</SidebarGroupLabel>
+          <SidebarGroupAction>
+            <Plus />
+          </SidebarGroupAction>
           <SidebarGroupContent>
-            <SidebarMenuItem>
-              <SidebarMenuButton size="sm" asChild>
-                <Link href="/projects">
-                  <Projector />
-                  See All Projects
-                </Link>
-              </SidebarMenuButton>
-              <SidebarMenuSub>
-                <SidebarMenuSubItem>
-                  <SidebarMenuSubButton size="sm" asChild>
-                    <Link href="/add-project">
-                      <Plus />
-                      Add Project
-                    </Link>
-                  </SidebarMenuSubButton>
-                </SidebarMenuSubItem>
-                <SidebarMenuSubItem>
-                  <SidebarMenuSubButton size="sm" asChild>
-                    <Link href="/add-category">
-                      <Plus />
-                      Add Category
-                    </Link>
-                  </SidebarMenuSubButton>
-                </SidebarMenuSubItem>
-              </SidebarMenuSub>
-            </SidebarMenuItem>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton size="sm" asChild>
+                  <Link href="/users">
+                    <User />
+                    <span>See All Users</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton size="sm" asChild>
+                  <button>
+                    <Plus />
+                    <span>Add User</span>
+                  </button>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel>Orders / Payments</SidebarGroupLabel>
+          <SidebarGroupAction>
+            <Plus />
+          </SidebarGroupAction>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton size="sm" asChild>
+                  <Link href="/users">
+                    <ShoppingBasket />
+                    <span>See All Transactions</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton size="sm" asChild>
+                  <button>
+                    <Plus />
+                    <span>Add Order</span>
+                  </button>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
