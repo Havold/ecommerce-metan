@@ -41,6 +41,9 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "./ui/collapsible";
+import { Sheet, SheetTrigger } from "./ui/sheet";
+import AddOrder from "./AddOrder";
+import { Button } from "./ui/button";
 
 const items = [
   {
@@ -129,19 +132,15 @@ const AppSidebar = () => {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton size="sm" asChild>
-                  <button>
-                    <Plus />
-                    <span>Add Product</span>
-                  </button>
+                <SidebarMenuButton size="sm">
+                  <Plus />
+                  <span>Add Product</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton size="sm" asChild>
-                  <button>
-                    <Plus />
-                    <span>Add Category</span>
-                  </button>
+                <SidebarMenuButton size="sm">
+                  <Plus />
+                  <span>Add Category</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -163,11 +162,9 @@ const AppSidebar = () => {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton size="sm" asChild>
-                  <button>
-                    <Plus />
-                    <span>Add User</span>
-                  </button>
+                <SidebarMenuButton size="sm">
+                  <Plus />
+                  <span>Add User</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -189,11 +186,16 @@ const AppSidebar = () => {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton size="sm" asChild>
-                  <button>
-                    <Plus />
-                    <span>Add Order</span>
-                  </button>
+                <SidebarMenuButton size="sm">
+                  <Sheet>
+                    <SheetTrigger asChild>
+                      <div className="flex gap-2 cursor-pointer">
+                        <Plus />
+                        <span>Add Order</span>
+                      </div>
+                    </SheetTrigger>
+                    <AddOrder />
+                  </Sheet>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
