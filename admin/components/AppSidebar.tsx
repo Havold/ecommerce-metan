@@ -45,6 +45,8 @@ import { Sheet, SheetTrigger } from "./ui/sheet";
 import AddOrder from "./AddOrder";
 import { Button } from "./ui/button";
 import AddUser from "./AddUser";
+import AddProduct from "./AddProduct";
+import AddCategory from "./AddCategory";
 
 const items = [
   {
@@ -133,16 +135,28 @@ const AppSidebar = () => {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton size="sm">
-                  <Plus />
-                  <span>Add Product</span>
+                <SidebarMenuButton asChild size="sm">
+                  <Sheet>
+                    <SheetTrigger asChild>
+                      <SidebarMenuButton className="cursor-pointer" size="sm">
+                        <Plus />
+                        <span>Add Product</span>
+                      </SidebarMenuButton>
+                    </SheetTrigger>
+                    <AddProduct />
+                  </Sheet>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton size="sm">
-                  <Plus />
-                  <span>Add Category</span>
-                </SidebarMenuButton>
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <SidebarMenuButton size="sm">
+                      <Plus />
+                      <span>Add Category</span>
+                    </SidebarMenuButton>
+                  </SheetTrigger>
+                  <AddCategory />
+                </Sheet>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
@@ -166,7 +180,7 @@ const AppSidebar = () => {
                 <SidebarMenuButton asChild size="sm">
                   <Sheet>
                     <SheetTrigger asChild>
-                      <SidebarMenuButton size="sm">
+                      <SidebarMenuButton className="cursor-pointer" size="sm">
                         <Plus />
                         <span>Add User</span>
                       </SidebarMenuButton>

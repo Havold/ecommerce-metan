@@ -15,9 +15,9 @@ import {
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  InputUserContentItem,
-  UserFormInputs,
-  UserFormSchema,
+  CategoryFormInputs,
+  CategoryFormSchema,
+  InputCategoryContentItem,
 } from "@/app/types";
 import { Input } from "./ui/input";
 import {
@@ -30,29 +30,15 @@ import {
 } from "./ui/select";
 import { Button } from "./ui/button";
 
-const inputUserContent: InputUserContentItem[] = [
-  { name: "fullName", description: "Enter user full name." },
-  { name: "email", description: "Only admin can see your email." },
-  {
-    name: "phone",
-    description: "Only admin can see your phone number. (optional)",
-  },
-  { name: "address", description: "Enter user address. (optional)" },
-  {
-    name: "city",
-    description: "Enter user city. (optional)",
-  },
+const inputUserContent: InputCategoryContentItem[] = [
+  { name: "category", description: "Enter category name to add." },
 ];
 
-const AddUser = () => {
-  const form = useForm<UserFormInputs>({
-    resolver: zodResolver(UserFormSchema),
+const AddCategory = () => {
+  const form = useForm<CategoryFormInputs>({
+    resolver: zodResolver(CategoryFormSchema),
     defaultValues: {
-      address: "",
-      city: "",
-      email: "",
-      fullName: "",
-      phone: "",
+      category: "",
     },
   });
 
@@ -62,12 +48,12 @@ const AddUser = () => {
   return (
     <SheetContent className="p-4">
       <SheetHeader>
-        <SheetTitle>Add User</SheetTitle>
+        <SheetTitle>Add Category</SheetTitle>
       </SheetHeader>
       <SheetDescription asChild>
         <form
           onSubmit={form.handleSubmit((data) => {
-            console.log("User data: ", data);
+            console.log("Category data: ", data);
           })}
         >
           <FieldGroup>
@@ -129,4 +115,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default AddCategory;
